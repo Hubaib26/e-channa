@@ -1,0 +1,58 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-6">
+    <form class="row g-3" action="/produk/create" method="POST">
+      <div class="row mb-3">
+        <label for="">Tambah data produk</label>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">Name</label>
+
+        <div class="col-6">
+          <input type="text" name="name" class="form-control" required />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">Image</label>
+        <div class="col-6">
+          <input type="text" name="image" class="form-control" required />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">Price</label>
+        <div class="col-6">
+          <input type="number" name="price" class="form-control" required />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">Stock</label>
+        <div class="col-6">
+          <input type="number" name="stok" class="form-control" required />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">Kategori</label>
+        <div class="col-6">
+          <select name="kategori_id" class="form-select">
+            <% kategori.forEach(data => { %>
+            <option value="<%= data.id %>"><%= data.name %></option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">Member</label>
+        <div class="col-6">
+          <select name="member_id" class="form-select">
+            <% member.forEach(data => { %>
+            <option value="<%= data.id %>"><%= data.name %></option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 float-right">
+        <button class="btn btn-primary" type="submit">Simpan</button>
+        <a href="/produk" class="btn btn-danger">Kembali</a>
+      </div>
+    </form>
+  </div>
+</div>
