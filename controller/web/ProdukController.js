@@ -119,7 +119,7 @@ class ProdukController {
           { where: { id: productId } }
         )
         .then((result) => {
-          console.log("aaaaaa");
+          //console.log("aaaaaa");
           console.log(result);
           //return res.json(result);
           produk_member.update({ memberId: member_id }, { where: { id: id } });
@@ -136,6 +136,11 @@ class ProdukController {
       const id = Number(req.params.id);
 
       let data = await produk.destroy({
+        where: {
+          id: id,
+        },
+      });
+      let dataMember = await produk_member.destroy({
         where: {
           id: id,
         },
