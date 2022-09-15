@@ -1,64 +1,52 @@
-<div class="row justify-content-center mt-5">
-    <div class="col-md-6">
-      <form class="row g-3" action="/produk/update/<%= result.id %>" method="POST">
-        <div class="row mb-3">
-          <label for="">Edit data products</label>
-        </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label">Jenis</label>
-          <div class="col-6">
-            <input type="text" name="name" class="form-control" required value="<%= result.produk.name %>"/>
-            <input type="text" name="productId" class="form-control" hidden required value="<%= result.produkId %>"/>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label">Image</label>
-          <div class="col-6">
-            <input type="text" name="image" class="form-control" required value="<%= result.produk.image %>"/>
-          </div>
-          <div class="col-12 mt-2">
-            <span>Image Sekarang : </span>
-            <img src="<%= result.produk.image %>" alt="" width="110" height="80">
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label">Price</label>
-          <div class="col-6">
-            <input type="number" name="price" class="form-control" required value="<%= result.produk.price %>"/>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label">Stock</label>
-          <div class="col-6">
-            <input type="number" name="stok" class="form-control" required value="<%= result.produk.stok %>"/>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label">Category</label>
-          <div class="col-6">
-            <select name="kategori_id" class="form-select">
-              <% kategori.forEach(kategori => { %> 
-                <option value="<%= kategori.id %>" <%= result.produk.kategori.id
-                 ===  kategori.id ? 'selected' : '' %> ><%= kategori.name %>
-                 </option>
-              <% }); %> 
-            </select>
-          </div>
-        </div>
 
-        <label class="col-2 col-form-label">Member</label>
+<div class="row justify-content-center mt-5">
+  <div class="col-md-6">
+    <form class="row g-3" action="/produk/update/<%= result.id %>" method="POST">
+      <div class="row mb-3">
+        <label for="">Edit data products</label>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">Name</label>
         <div class="col-6">
-          <select name="member_id" class="form-select">
-            <% member.forEach(data => { %>
-            <option value="<%= data.id %>" <%= result.memberId == data.id ? 'selected' : '' %> ><%= data.name %></option>
-            <% }) %>
+          <input type="text" name="name" class="form-control" required value="<%= result.name %>"/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">Image</label>
+        <div class="col-6">
+          <input type="text" name="image" class="form-control" required value="<%= result.image %>"/>
+        </div>
+        <div class="col-12 mt-2">
+          <span>Image Sekarang : </span>
+          <img src="<%= result.image %>" alt="" width="110" height="80">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">Price</label>
+        <div class="col-6">
+          <input type="number" name="price" class="form-control" required value="<%= result.price %>"/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">Stok</label>
+        <div class="col-6">
+          <input type="number" name="stok" class="form-control" required value="<%= result.stock %>"/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label">Category</label>
+        <div class="col-6">
+          <select name="kategori_id" class="form-select">
+            <% kategories.forEach(kategori => { %> 
+              <option value="<%= kategori.id %>" <%= result.kategoriId === kategori.id ? 'selected' : '' %> ><%= kategori.name %></option>
+            <% }); %> 
           </select>
         </div>
       </div>
-        <div class="col-12 float-right">
-          <button class="btn btn-primary" type="submit">Simpan</button>
-          <a href="/produk" class="btn btn-danger">Kembali</a>
-        </div>
-      </form>
-    </div>
+      <div class="col-12 float-right">
+        <button class="btn btn-primary" type="submit">Simpan</button>
+        <a href="/produk" class="btn btn-danger">Kembali</a>
+      </div>
+    </form>
   </div>
+</div>

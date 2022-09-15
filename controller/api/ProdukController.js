@@ -1,11 +1,10 @@
-const { produk, kategori } = require("../../models");
+const { produk } = require("../../models");
 
 class ProdukController {
   static async index(req, res) {
     try {
       let data = await produk.findAll({
         order: [["id", "ASC"]],
-        include: [kategori],
       });
 
       if (data.length == 0) {
@@ -81,7 +80,7 @@ class ProdukController {
   static async update(req, res) {
     try {
       const id = Number(req.params.id);
-      const { kategori_id, name, image, stok } = req.body;
+      const { kategori_id, name, image, stok, price } = req.body;
 
       await produk
         .update(

@@ -6,6 +6,7 @@ class MemberController {
       let data = await member.findAll({
         order: [["id", "ASC"]],
       });
+
       if (data.length == 0) {
         throw {
           message: "Data tidak tersedia",

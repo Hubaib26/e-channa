@@ -1,4 +1,5 @@
 const { kategori } = require("../../models");
+
 class KategoriController {
   static async index(req, res) {
     try {
